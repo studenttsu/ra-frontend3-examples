@@ -7,12 +7,13 @@ const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
 const del = require('del');
 
+const SRC_PATH = 'src';
+const DIST_PATH = 'dist';
+
 const PATHS = {
-    src: 'src',
-    dist: 'dist',
-    scss: `${PATHS.src}/scss/**/*.scss`,
-    html: `${PATHS.src}/**/*.html`,
-    images: `${PATHS.src}/images/**/*.*`
+    scss: `${SRC_PATH}/scss/**/*.scss`,
+    html: `${SRC_PATH}/**/*.html`,
+    images: `${SRC_PATH}/images/**/*.*`
 };
 
 // Таск компиляции SASS в CSS
@@ -30,21 +31,21 @@ function buildSass() {
             ])
         )
         .pipe(sourcemaps.write())
-        .pipe(dest(`${PATHS.src}/css`))
-        .pipe(dest(`${PATHS.dist}/css`))
+        .pipe(dest(`${SRC_PATH}/css`))
+        .pipe(dest(`${DIST_PATH}/css`))
         .pipe(browserSync.stream());
 }
 
 // Таск работы с html файлами
 function buildHtml() {
     return src(PATHS.html)
-        .pipe(dest(PATHS.dist))
+        .pipe(dest(DIST_PATH))
         .pipe(browserSync.stream());
 }
 
 // Таск копирования статичных файлов
 function copy() {
-    return src([PATHS.images], { base: PATHS.src }).pipe(dest(PATHS.dist));
+    return src([PATHS.images], { base: SRC_PATH }).pipe(dest(DIST_PATH));
 }
 
 // Таск очистки dist
@@ -61,7 +62,7 @@ function serve() {
 // Создание дев-сервера
 function createDevServer() {
     browserSync.init({
-        server: PATHS.src,
+        server: SRC_PATH,
         notify: false
     })
 }
