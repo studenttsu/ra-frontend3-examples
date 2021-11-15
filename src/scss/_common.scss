@@ -1,0 +1,42 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+html,
+body,
+.wrapper {
+    height: 100%;
+}
+
+body {
+    color: #000;
+    font: 16px 'Roboto', sans-serif;
+    min-width: 320px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.btn {
+    border: none;
+    background-color: #34547A;
+    outline: 0;
+    cursor: pointer;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 20px 40px;
+    transition: .15s background-color;
+}
+
+.btn:hover {
+    background-color: #4b719d;
+}
+
+.btn:active {
+    background-color: #224368;
+}

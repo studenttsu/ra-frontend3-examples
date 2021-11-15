@@ -1,0 +1,157 @@
+@import 'vendors';
+@import 'vars';
+@import 'common';
+@import 'mixins';
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper .main {
+    flex: 1;
+}
+
+.header,
+.footer {
+    flex-shrink: 0;
+}
+
+.container {
+    max-width: 1110px;
+    width: 100%;
+    margin: auto;
+}
+
+.header {
+    background-color: #EEEFF1;
+    padding: 56px 0 140px;
+
+    &__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 100px;
+
+        @include _768() {
+            background: red;
+        }
+    }
+}
+
+.logo {
+    color: #34547A;
+    font-family: $font;
+    font-size: 48px;
+    display: inline-block;
+}
+
+.navigation {
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    li:not(:last-child) {
+        margin-right: 42px;
+    }
+
+    li.active a,
+    a:hover {
+        color: #34547A;
+    }
+
+    a {
+        color: #000;
+        text-transform: uppercase;
+    }
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+
+    &__img {
+        text-align: center;
+
+        svg {
+            display: block;
+            margin: auto;
+        }
+    }
+
+    &__img,
+    &__content {
+        width: 50%;
+    }
+
+    &__title,
+    &__subtitle {
+        margin: 0 0 35px;
+    }
+
+    &__title {
+        font-size: 48px;
+        font-weight: 500;
+    }
+
+    &__subtitle {
+        color: #727272;
+        line-height: 164.1%;
+    }
+
+    &__btn {
+        min-width: 225px;
+        height: 64px;
+    }
+}
+
+.section {
+    padding: 50px 0;
+
+    &_grey-bg {
+        padding: 80px 0;
+        background-color: #999;
+    }
+}
+
+.benefits {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -30px -15px 0;
+
+    &__item {
+        width: 33.3333%;
+        padding: 0 15px;
+        margin-top: 30px;
+    }
+}
+
+.benefit {
+    text-align: center;
+
+    &__icon {
+        margin-bottom: 28px;
+
+        img {
+            width: 48px;
+            height: 48px;
+        }
+    }
+
+    &__title {
+        font-size: 18px;
+        font-weight: bold;
+        margin: 0 0 12px;
+    }
+
+    &__descr {
+        font-size: 14px;
+        line-height: 22px;
+    }
+}
+
+@import 'media';
