@@ -154,4 +154,20 @@
     }
 }
 
+.tabs { 
+    &__links { 
+      .active { 
+        color: red; 
+      } 
+    } 
+     
+    &__item { 
+      display: none; 
+       
+      &.active { 
+        display: block; 
+      } 
+    } 
+  }
+
 @import 'media';
