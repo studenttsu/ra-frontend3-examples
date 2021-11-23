@@ -10,12 +10,209 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Revalia&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/main.css">    
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"
+    />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="./css/main.css">
+    
+    <style>
+        .empty-list.hide {
+            display: none;
+        }
+
+        .loader{
+  margin: 0 0 2em;
+  height: 100px;
+  width: 20%;
+  text-align: center;
+  padding: 1em;
+  margin: 0 auto 1em;
+  display: inline-block;
+  vertical-align: top;
+  display: none;
+}
+
+/*
+  Set the color of the icon
+*/
+svg path,
+svg rect{
+  fill: #FF6700;
+}
+
+.slider img {
+    width: 100%;
+    display: block;
+}
+
+    </style>
 </head>
 
 <body>
 
-    <div class="wrapper">
+    <div class="container">
+        <button class="btn-prev">Prev</button>
+        <button class="btn-next">Next</button>
+        <br><br>
+
+        <div class="slider">
+            <div>
+                <a data-fancybox="slider" data-src="https://howtogetrid.ru/assets/uploads/2018/09/pitanie-dymchatogo-leoparda.jpg">
+                    <img src="https://howtogetrid.ru/assets/uploads/2018/09/pitanie-dymchatogo-leoparda.jpg" alt="">
+                </a>
+            </div>
+            <div>
+                <a data-fancybox="slider" data-src="https://howtogetrid.ru/assets/uploads/2018/09/pitanie-dymchatogo-leoparda.jpg">
+                    <img src="https://howtogetrid.ru/assets/uploads/2018/09/pitanie-dymchatogo-leoparda.jpg" alt="">
+                </a>
+            </div>
+            <div>
+                <a data-fancybox="slider" data-src="https://howtogetrid.ru/assets/uploads/2018/09/pitanie-dymchatogo-leoparda.jpg">
+                    <img src="https://howtogetrid.ru/assets/uploads/2018/09/pitanie-dymchatogo-leoparda.jpg" alt="">
+                </a>
+            </div>
+            <div>
+                <a data-fancybox="slider" data-src="https://howtogetrid.ru/assets/uploads/2018/09/pitanie-dymchatogo-leoparda.jpg">
+                    <img src="https://howtogetrid.ru/assets/uploads/2018/09/pitanie-dymchatogo-leoparda.jpg" alt="">
+                </a>
+            </div>
+            <div>
+                <a data-fancybox="slider" data-src="https://howtogetrid.ru/assets/uploads/2018/09/pitanie-dymchatogo-leoparda.jpg">
+                    <img src="https://howtogetrid.ru/assets/uploads/2018/09/pitanie-dymchatogo-leoparda.jpg" alt="">
+                </a>
+            </div>
+            <div>
+                <a data-fancybox="slider" data-src="https://howtogetrid.ru/assets/uploads/2018/09/pitanie-dymchatogo-leoparda.jpg">
+                    <img src="https://howtogetrid.ru/assets/uploads/2018/09/pitanie-dymchatogo-leoparda.jpg" alt="">
+                </a>
+            </div>
+            <div>
+                <a data-fancybox="slider" data-src="https://howtogetrid.ru/assets/uploads/2018/09/pitanie-dymchatogo-leoparda.jpg">
+                    <img src="https://howtogetrid.ru/assets/uploads/2018/09/pitanie-dymchatogo-leoparda.jpg" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <button data-fancybox="dialog" data-src="#dialog-content">Открыть форму в модалке</button>
+
+    <div id="dialog-content" hidden>
+        Далеко-далеко за, словесными горами в стране гласных и согласных живут рыбные тексты. Залетают но выйти если образ курсивных свой, мир бросил семь рыбными прямо рыбного все власти всеми языкового не грамматики собрал великий за коварных. Великий щеке вопрос языкового, всемогущая повстречался одна.
+    </div>
+
+    <div class="container" style="display: none;">
+        <br><br>
+        <input id="query-input" type="text" placeholder="Enter name">
+        <ul id="users-list"></ul>
+    </div>
+
+    <div class="container" style="display: none;">
+        <div class="tabs"> 
+            <ul class="tabs__links"> 
+              <li>1</li> 
+              <li>2</li>
+              <li>3</li> 
+            </ul>
+             
+            <div class="tabs__content"> 
+              <div class="tabs__item">1</div> 
+              <div class="tabs__item">2</div> 
+              <div class="tabs__item">3</div> 
+            </div>
+        </div>
+
+        <div class="tabs"> 
+            <ul class="tabs__links"> 
+              <li>1</li> 
+              <li>2</li>
+              <li>3</li> 
+            </ul>
+             
+            <div class="tabs__content"> 
+              <div class="tabs__item">1</div> 
+              <div class="tabs__item">2</div> 
+              <div class="tabs__item">3</div> 
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="container">
+        <form id="form">
+            <label>
+                Имя:
+                <input type="text" name="name" required>
+            </label>
+    <br><br>
+            <label>
+                Страна:
+                <select name="county">
+                    <option value="">Не выбрано</option>
+                    <option value="Россия">Россия</option>
+                    <option value="Польша">Польша</option>
+                </select>
+            </label>
+    <br><br>
+            <label>
+                Резюме:
+                <input type="file" name="cv">
+            </label>
+    <br><br>
+            <label>
+                Согласие на обработку перс. данных:
+                <input type="checkbox" name="policy" checked required>
+            </label>
+    <br><br>
+            <button type="submit">Отправить</button>
+        </form>
+    </div>
+
+    <div id="loader" class="loader loader--style1" title="0">
+        <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+        <path opacity="0.2" fill="#000" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
+          s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634
+          c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z"/>
+        <path fill="#000" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
+          C22.32,8.481,24.301,9.057,26.013,10.047z">
+          <animateTransform attributeType="xml"
+            attributeName="transform"
+            type="rotate"
+            from="0 20 20"
+            to="360 20 20"
+            dur="0.5s"
+            repeatCount="indefinite"/>
+          </path>
+        </svg>
+      </div> -->
+
+    <!-- <section>
+        <div class="container">
+            <br>
+
+            <form id="todo-form">
+                <input name="task" placeholder="Введите задачу" required>
+                <button>Добавить</button>
+            </form>
+
+            <p class="empty-list">Задачи не добавлены</p>
+
+            <ul id="todo-list" class="todo-list">
+                <li class="todo-list__item">1</li>
+                <li class="todo-list__item">2</li>
+                <li class="todo-list__item">3</li>
+                <li class="todo-list__item">4</li>
+                <li class="todo-list__item">5</li>
+            </ul>
+
+        </div>
+    </section> -->
+
+    <div class="wrapper" style="display: none;">
         <header class="header">
             <div class="container">
                 <div class="header__top">
@@ -243,6 +440,13 @@
             </div>
     </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    <script src="./js/index.js"></script>
+    <script src="./js/main.js" type="module"></script>
 
 </body>
 </html>
