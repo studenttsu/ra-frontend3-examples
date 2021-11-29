@@ -1,10 +1,13 @@
 import $ from 'jquery';
-import { OrderForm } from './forms/order-form.js';
+import apiService from './services/api-service.ts';
 import { TabsManager } from './tabs.js';
 
-function init() {
+async function init() {
 
-    new OrderForm();
+    const services = await apiService.getServices();
+    console.log(services);
+
+    // new OrderForm();
 
     $('.slider').slick({
         prevArrow: '.btn-prev',
