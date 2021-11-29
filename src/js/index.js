@@ -1,6 +1,60 @@
-// const delay = (ms = 2000) => {
-//     return new Promise(resolve => setTimeout(() => resolve(), ms));
-// }
+import $ from 'jquery';
+import 'slick-carousel';
+import { Fancybox } from "@fancyapps/ui";
+import './main';
+
+$(document).ready(function(){
+    $('.slider').slick({
+        prevArrow: '.btn-prev',
+        nextArrow: '.btn-next',
+        slidesToShow: 4,
+        infinite: false
+    });
+
+    const input = document.getElementById('query-input');
+    const usersList = document.getElementById('users-list');
+
+    input.addEventListener('keyup', async () => {
+        // посылем запрос
+        // в цикле создаём новый элемент списка
+        // вставляем в DOM
+
+        usersList.innerHTML = '';
+        const { value } = input;
+
+        if (value) {
+            const users = await fetchUsers(value);
+        
+            users.forEach(user => {
+                const userEl = createUserEl(user);
+                usersList.append(userEl);
+            });
+
+            return;
+        }
+    });
+
+    function createUserEl({ name }, className = '') {
+        const userEl = document.createElement('li');
+        userEl.textContent = name;
+
+        if (className) {
+            userEl.classList.add(className);
+        }
+
+        return userEl;
+    }
+
+    function fetchUsers(name) {
+        return fetch(`https://jsonplaceholder.typicode.com/users?name=${name}`)
+            .then(response => response.json());
+    }
+});
+
+
+const delay = (ms = 2000) => {
+    return new Promise(resolve => setTimeout(() => resolve(), ms));
+}
 
 // function getUser() {
 //     return new Promise(resolve => {
@@ -66,52 +120,3 @@
 //     }
 
 // })();
-
-$(document).ready(function(){
-    $('.slider').slick({
-        prevArrow: '.btn-prev',
-        nextArrow: '.btn-next',
-        slidesToShow: 4,
-        infinite: false
-    });
-
-    const input = document.getElementById('query-input');
-    const usersList = document.getElementById('users-list');
-
-    input.addEventListener('keyup', async () => {
-        // посылем запрос
-        // в цикле создаём новый элемент списка
-        // вставляем в DOM
-
-        usersList.innerHTML = '';
-        const { value } = input;
-
-        if (value) {
-            const users = await fetchUsers(value);
-        
-            users.forEach(user => {
-                const userEl = createUserEl(user);
-                usersList.append(userEl);
-            });
-
-            return;
-        }
-    });
-
-    function createUserEl({ name }, className = '') {
-        const userEl = document.createElement('li');
-        userEl.textContent = name;
-
-        if (className) {
-            userEl.classList.add(className);
-        }
-
-        return userEl;
-    }
-
-    function fetchUsers(name) {
-        return fetch(`https://jsonplaceholder.typicode.com/users?name=${name}`)
-            .then(response => response.json());
-    }
-});
-

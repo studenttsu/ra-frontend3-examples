@@ -10,13 +10,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Revalia&display=swap" rel="stylesheet">
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"
-    />
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="./css/main.css">
     
@@ -111,7 +104,7 @@ svg rect{
         <ul id="users-list"></ul>
     </div>
 
-    <div class="container" style="display: none;">
+    <div class="container">
         <div class="tabs"> 
             <ul class="tabs__links"> 
               <li>1</li> 
@@ -438,15 +431,69 @@ svg rect{
             <div class="container">
                 Footer
             </div>
-    </div>
+        </footer>
+        </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    <!-- Базовая реализация для секции. 
+        Остальные классы элементов для частных случаев (section__title_masters, section__services, section__ben-price и т.д) избыточны.
+        Лучше задать доп. класс для конкретного частного случая и от него описывать классы элементов.
+    -->
+    <section class="section"><!-- может быть модификатор section_gray для секции с фоном. Модификаторы в основном применяются именно к базовой реализации блока -->
+        <div class="container">
+            <header class="section__header">
+                <h2 class="section__title">Заголовок</h2>
+                <div class="section__tools">Кнопки</div>
+            </header>
 
-    <script src="./js/index.js"></script>
-    <script src="./js/main.js" type="module"></script>
+            <div class="section__inner">
+                Содержимое секции
+            </div>
+        </div>
+    </section>
+
+    <!-- Случай с секцией мастеров -->
+    <section class="section section_gray masters-section">
+        <!-- masters-section это отдельный класс для конкретного блока со своими элементами -->
+        <div class="container">
+            <header class="section__header">
+                <h2 class="section__title">Мастера</h2>
+            </header>
+
+            <div class="section__inner">
+                <p class="masters-section__title">Дружная команда настоящих профессионалов</p>
+
+                <div class="row masters-wrapper">
+                    <!-- masters-wrapper для задания отрицательного отступы. Не нужно создавать новый элемент section__masters. -->
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12">
+                        <div class="masters">...</div>
+                    </div>
+
+                    ...
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Случай с галереей работ -->
+    <section class="section">
+        <div class="container">
+            <header class="section__header">
+                <h2 class="section__title">Наши работы</h2>
+
+                <div class="section__tools">
+                    <button class="arrow-prev"></button>
+                    <button class="arrow-next"></button>
+                </div>
+            </header>
+
+            <div class="section__inner">
+                Фотки
+            </div>
+        </div>
+    </section>
+
+    <script src="./js/main.min.js"></script>
 
 </body>
 </html>
