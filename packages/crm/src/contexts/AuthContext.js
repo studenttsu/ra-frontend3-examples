@@ -10,6 +10,7 @@ const AuthContext = createContext();
 function AuthProvider(props) {
     const [isAuth, setIsAuth] = useState(TokenService.isTokenValid());
     const navigate = useNavigate();
+            const user = {};
 
     async function login(authData) {
         try {

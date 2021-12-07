@@ -1,11 +1,11 @@
 export class HttpService {
     constructor(baseApiPath) {
-        this.baseApi = baseApiPath;
+        this.baseApi = baseApiPath
     }
 
     async get(path) {
-        const response = await fetch(`${this.baseApi}/${path}`);
-        return response.json();
+        const response = await fetch(`${this.baseApi}/${path}`)
+        return response.json()
     }
 
     async post(path, data) {
@@ -13,10 +13,10 @@ export class HttpService {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
-                'Content-Type': 'application/json'
-            }
-        });
+                'Content-Type': 'application/json',
+            },
+        })
 
-        return response.json();
+        return response.json()
     }
 }
