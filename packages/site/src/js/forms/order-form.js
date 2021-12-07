@@ -1,13 +1,13 @@
-import { ApiService } from '../services'
+import { ApiService } from '../services';
 
 export class OrderForm {
     async handleForm() {
-        const data = {}
+        const data = {};
 
-        const masters = await ApiService.getMasters()
+        const masters = await ApiService.getMasters();
 
         masters.forEach((master) => {
             //
-        })
+        });
     }
 }
