@@ -23,7 +23,7 @@ const PATHS = {
 function buildSass() {
     return src(PATHS.scss)
         .pipe(sourcemaps.init())
-        .pipe(sass({ includePaths: ['./node_modules'] }).on('error', sass.logError))
+        .pipe(sass({ includePaths: ['./node_modules', '../../node_modules'] }).on('error', sass.logError))
         .pipe(
             postcss([
                 autoprefixer({ grid: true }),
@@ -74,7 +74,8 @@ function serve() {
 function createDevServer() {
     browserSync.init({
         server: SRC_PATH,
-        notify: false
+        notify: false,
+        port: 4200
     })
 }
 
