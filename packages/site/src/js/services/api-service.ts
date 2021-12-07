@@ -1,5 +1,6 @@
-import { API_PATH } from '../constants'; 
-import { CreateOrderDto, ServiceDto, StaffDto } from '../interfaces';
+import { CreateOrderDto, ServiceDto, StaffDto } from '@beauty/common/interfaces';
+// @ts-ignore
+import { API_PATH } from '@beauty/common/constants';
 import { HttpService } from './http-service';
 
 class ApiService extends HttpService {
