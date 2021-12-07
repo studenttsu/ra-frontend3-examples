@@ -11,7 +11,8 @@
     "start": "kill-port 3000 lerna run start --stream",
     "start:site": "lerna run start --scope=site --stream",
     "start:crm": "kill-port 3000 && lerna run start --scope=crm --stream",
-    "build:site": "lerna run build --scope=site"
+    "build:site": "lerna run build --scope=site",
+    "build:crm": "lerna run build --scope=crm"
   },
   "workspaces": [
     "packages/*"
