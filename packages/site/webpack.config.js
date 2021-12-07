@@ -1,17 +1,18 @@
 const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
-    mode: process.env.NODE_ENV,
+    // TODO: process.env.NODE_ENV fix
+    mode: 'development',
     devtool: isProduction ? false : 'eval-source-map',
     module: {
         rules: [
             {
-                test: /\.(js)$/,
+                test: /\.js$/,
                 loader: 'babel-loader',
-                exclude: /(node_modules)/
+                exclude: /node_modules/
             },
             {
-                test: /\.ts?$/,
+                test: /\.ts$/,
                 use: ['babel-loader', 'ts-loader'],
                 exclude: /node_modules/,
             },
@@ -20,9 +21,4 @@ module.exports = {
     resolve: {
         extensions: ['.ts', '.js'],
     },
-    externals: {
-        $: 'jquery',
-        jQuery: 'jquery',
-        'window.jQuery': 'jquery'
-    }
 };
