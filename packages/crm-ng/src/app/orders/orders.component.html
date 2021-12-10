@@ -1,0 +1,8 @@
+<app-orders-filter (filter)="filterData($event)"></app-orders-filter>
+
+<div *ngFor="let order of orders">
+  {{ order?.service?.name }} / {{ order?.customer?.fullName }}
+</div>
+
+<br>
+<button (click)="auth()"></button>

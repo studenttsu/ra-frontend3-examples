@@ -1,0 +1,21 @@
+<nz-layout>
+  <nz-header>
+    <div class="container">
+      <div class="logo">Beauty CRM</div>
+
+      <ul nz-menu nzTheme="dark" nzMode="horizontal">
+        <li nz-menu-item *ngFor="let link of links" [routerLink]="link.path"
+            [routerLinkActiveOptions]="{ exact: link.path === '' }"
+            routerLinkActive="ant-menu-item-selected">
+          {{ link.label }}
+        </li>
+      </ul>
+    </div>
+  </nz-header>
+
+  <nz-content>
+    <main class="container">
+      <router-outlet></router-outlet>
+    </main>
+  </nz-content>
+</nz-layout>

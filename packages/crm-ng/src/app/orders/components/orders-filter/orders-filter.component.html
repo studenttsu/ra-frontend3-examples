@@ -1,0 +1,21 @@
+<form nz-form [formGroup]="form" (ngSubmit)="handleForm()" nzLayout="inline">
+  <nz-form-item>
+    <nz-range-picker formControlName="date"></nz-range-picker>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-select formControlName="status">
+      <nz-option nzLabel="Не выбрано" nzValue=""></nz-option>
+      <nz-option nzLabel="Открытые" [nzValue]="OrderStatus.Opened"></nz-option>
+      <nz-option nzLabel="Архивные" [nzValue]="OrderStatus.Closed"></nz-option>
+    </nz-select>
+  </nz-form-item>
+
+  <nz-form-item>
+    <input nz-input formControlName="search" placeholder="Введите имя">
+  </nz-form-item>
+
+  <nz-form-item>
+    <button nz-button nzType="primary">Фильтровать</button>
+  </nz-form-item>
+</form>
